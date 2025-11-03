@@ -1,0 +1,54 @@
+.ribbon {
+    width: 100%;
+    background-color: #1A2C3D;
+    padding: 0.5rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #FDFBF7;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.navbar-logo {
+    height: 150px;
+    width: auto;
+}
+
+.logo-text {
+    font-size: 2rem;
+    color: #C6A664;
+    font-weight: 700;
+    text-align: center;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: #FDFBF7;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-list a:hover {
+    color: #C6A664;
+}
