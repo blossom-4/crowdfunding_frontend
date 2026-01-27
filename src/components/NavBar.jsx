@@ -29,7 +29,7 @@ function NavBar() {
                     <ul className="nav-list">
                         <li><NavLink to="/" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>Home</NavLink></li>
                         <li><NavLink to="/about" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>About</NavLink></li>
-                        <li><NavLink to="/create-a-case" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>Create a Case</NavLink></li>
+                        <li><NavLink to="/create-a-case" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>Raise a Case</NavLink></li>
                         {auth.token ? (
                             <li>
                                 <button onClick={handleLogout} className="logout-btn" aria-label="Logout from your account">
