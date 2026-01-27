@@ -1,18 +1,88 @@
-.footer {
-    text-align: center;
-    padding: 2rem;
-    font-size: 0.9rem;
-    }
-
+/* --- PAGE BASE --- */
 html {
     box-sizing: border-box;
     font-size: 16px;
-    font-family: "Bad Script", sans-serif;
-    color: var(--black);
-    scroll-behavior: smooth;}
+    scroll-behavior: smooth;
+}
 
-.body {
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    font-family: 'Source Sans 3', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    color: #4F4F4F;
+    background: #FDFBF7;
+    line-height: 1.75;
+}
+
+/* --- ABOUT PAGE WRAPPER --- */
+.about-page {
+    max-width: 880px;
     margin: 0 auto;
+    padding: 5rem 1.25rem 3rem;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(26, 44, 61, 0.08);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+
+.about-page h1,
+.about-page h2 {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    color: #1A2C3D;
     text-align: center;
-    padding: 20px, 0, 0, 0;
+    margin: 0 0 1rem;
+}
+
+.about-page h1 {
+    font-size: clamp(2rem, 3vw, 3rem);
+    letter-spacing: -0.02em;
+}
+
+.about-page h2 {
+    font-size: clamp(1.35rem, 2vw, 2rem);
+    color: #3E6D8E;
+    margin-top: 2.5rem;
+}
+
+.about-page p {
+    font-size: 1.05rem;
+    max-width: 70ch;
+    margin: 1rem auto;
+}
+
+.about-page .lead {
+    font-size: 1.15rem;
+    color: #1A2C3D;
+    font-weight: 500;
+}
+
+/* --- FOOTER --- */
+.footer {
+    border-top: 1px solid rgba(26, 44, 61, 0.10);
+    padding: 1.75rem 1rem;
+    text-align: center;
+    background: rgba(253, 251, 247, 0.7);
+}
+
+/* Acknowledgement text */
+.footer p:first-child {
+    font-size: 0.78rem;
+    /* much smaller */
+    line-height: 1.5;
+    max-width: 720px;
+    margin: 0 auto 0.75rem;
+    color: rgba(79, 79, 79, 0.75);
+}
+
+/* Copyright */
+.footer p:last-child {
+    font-size: 0.75rem;
+    color: rgba(79, 79, 79, 0.6);
 }

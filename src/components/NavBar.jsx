@@ -44,9 +44,7 @@ function NavBar() {
                         <li><NavLink to="/create-a-case" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} onClick={closeMenu}>Raise a Case</NavLink></li>
                         {auth.token ? (
                             <li>
-                                <button onClick={handleLogout} className="logout-btn" aria-label="Logout from your account">
-                                    Log Out
-                                </button>
+                                <a href="#" className="nav-link" onClick={(e) => { e.preventDefault(); handleLogout(); }} aria-label="Logout from your account">Log Out</a>
                             </li>
                         ) : (
                             <li>

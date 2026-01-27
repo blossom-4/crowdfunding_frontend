@@ -165,13 +165,7 @@ button.secondary {
     margin-right: 20px;
 }
 
-/* -------- CASE GRID -------- */
-#case-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.75rem;
-    padding: 2rem;
-}
+/* Case grid styling moved to HomePage.css for better control */
 
 /* -------- CASE CARD -------- */
 .case-card {
