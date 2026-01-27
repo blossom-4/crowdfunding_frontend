@@ -53,7 +53,7 @@
 .create-case-form input:focus,
 .create-case-form textarea:focus {
     outline: none;
-    border-color: #007bff;
+    border-color: var(--balanced-blue);
     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
 }
 
@@ -64,8 +64,8 @@
 }
 
 .create-case-form button {
-    background-color: #007bff;
-    color: #fff;
+    background-color: var(--balanced-blue);
+    color: var(--ivory-);
     border: none;
     padding: 12px 24px;
     border-radius: 8px;
@@ -77,7 +77,7 @@
 }
 
 .create-case-form button:hover:not(:disabled) {
-    background-color: #0056b3;
+    background-color: var(--midnight-justice);
     transform: translateY(-2px);
 }
 
