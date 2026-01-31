@@ -7,6 +7,10 @@ function CreateCaseForm() {
     const navigate = useNavigate();
     const token = window.localStorage.getItem("token");
 
+    if (!token) {
+        return <p>Please log in to create a case.</p>;
+    }
+
     const [formData, setFormData] = useState({
         title: "",
         description: "",
@@ -21,6 +25,7 @@ function CreateCaseForm() {
     });
 
     const handleChange = (e) => {
+        setStatus({ loading: false, error: "", success: "" });
         const { id, value, type, checked } = e.target;
         setFormData((prev) => ({
             ...prev,
@@ -32,12 +37,36 @@ function CreateCaseForm() {
         e.preventDefault();
         setStatus({ loading: true, error: "", success: "" });
 
+        if (formData.title.trim().length < 5) {
+            setStatus({ loading: false, error: "Title must be at least 5 characters", success: "" });
+            return;
+        }
+
+        if (formData.description.trim().length < 20) {
+            setStatus({ loading: false, error: "Description must be at least 20 characters", success: "" });
+            return;
+        }
+
+        if (formData.image.trim() && !isValidUrl(formData.image)) {
+            setStatus({ loading: false, error: "Please enter a valid image URL", success: "" });
+            return;
+        }
+
         try {
             await postCreateCase(formData, token);
             setStatus({ loading: false, error: "", success: "Case created successfully!" });
-            navigate("/cases"); // redirect after success
+            navigate("/cases");
         } catch (err) {
             setStatus({ loading: false, error: err.message || "Error creating case", success: "" });
+        }
+    };
+
+    const isValidUrl = (urlString) => {
+        try {
+            new URL(urlString);
+            return true;
+        } catch {
+            return false;
         }
     };
 
@@ -60,8 +89,11 @@ function CreateCaseForm() {
                         value={formData.title}
                         onChange={handleChange}
                         placeholder="Enter case title"
+                        aria-required="true"
+                        aria-describedby="title-help"
                         required
                     />
+                    <small id="title-help">Minimum 5 characters</small>
                 </div>
 
                 <div>
@@ -71,8 +103,12 @@ function CreateCaseForm() {
                         value={formData.description}
                         onChange={handleChange}
                         placeholder="Enter case details"
+                        maxLength="5000"
+                        aria-required="true"
+                        aria-describedby="description-help"
                         required
                     />
+                    <small id="description-help">{formData.description.length}/5000 characters</small>
                 </div>
 
                 <div>
@@ -83,7 +119,21 @@ function CreateCaseForm() {
                         value={formData.image}
                         onChange={handleChange}
                         placeholder="https://example.com/image.jpg"
+                        aria-describedby="image-help"
                     />
+                    <small id="image-help">Optional. Must be a valid URL if provided.</small>
+                </div>
+
+                <div>
+                    <label htmlFor="is_open">
+                        <input
+                            type="checkbox"
+                            id="is_open"
+                            checked={formData.is_open}
+                            onChange={handleChange}
+                        />
+                        Case is open for verdicts
+                    </label>
                 </div>
 
                 <button type="submit" disabled={status.loading}>

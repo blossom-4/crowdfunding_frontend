@@ -1,14 +1,25 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
+import { useState } from "react";
 import "./NavBar.css";
 import { useAuth } from "../hooks/use-auth.js";
-import logo from "../assets/logo-2-e.png";
+import logo from "../assets/logo_3.png";
 
 function NavBar() {
     const { auth, setAuth } = useAuth();
+    const [menuOpen, setMenuOpen] = useState(false);
 
     const handleLogout = () => {
-        window.localStorage.removeItem("token");
-        setAuth({ token: null });
+        try {
+            window.localStorage.removeItem("token");
+            setAuth({ token: null });
+            setMenuOpen(false);
+        } catch (err) {
+            console.error("Logout failed:", err);
+        }
+    };
+
+    const closeMenu = () => {
+        setMenuOpen(false);
     };
 
     return (
@@ -16,23 +27,30 @@ function NavBar() {
             <div className="ribbon">
                 <nav className="navbar">
                     <div className="logo-container">
-                        <Link to="/">
-                            <img src={logo} alt="Raise The Case Logo" className="navbar-logo" />
+                        <Link to="/" onClick={closeMenu}>
+                            <img src={logo} alt="Raise The Case - Justice Crowdfunding Platform Logo" className="navbar-logo" />
                         </Link>
-                        <span className="logo-text">Raise The Case</span>
                     </div>
 
-                    <ul className="nav-list">
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/about">About</Link></li>
-                        <li><Link to="/create-a-case">Create a Case</Link></li>
+                    <button className={`hamburger ${menuOpen ? "active" : ""}`} onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle navigation menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+
+                    <ul className={`nav-list ${menuOpen ? "active" : ""}`}>
+                        <li><NavLink to="/" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} onClick={closeMenu}>Home</NavLink></li>
+                        <li><NavLink to="/about" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} onClick={closeMenu}>About</NavLink></li>
+                        <li><NavLink to="/create-a-case" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} onClick={closeMenu}>Raise a Case</NavLink></li>
                         {auth.token ? (
                             <li>
-                                <Link to="/" onClick={handleLogout}>Log Out</Link>
+                                <button onClick={handleLogout} className="logout-btn" aria-label="Logout from your account">
+                                    Log Out
+                                </button>
                             </li>
                         ) : (
                             <li>
-                                <Link to="/login">Login</Link>
+                                <NavLink to="/login" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} onClick={closeMenu}>Login</NavLink>
                             </li>
                         )}
                     </ul>
