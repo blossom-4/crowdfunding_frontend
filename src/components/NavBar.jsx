@@ -91,6 +91,7 @@ function NavBar() {
                                 className="navbar-logo"
                                 draggable="false"
                             />
+                            <span className="logo-text">Raise The Case</span>
                         </Link>
                     </div>
 

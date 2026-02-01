@@ -27,7 +27,7 @@
     text-align: left;
 }
 
-.create-case-form > div {
+.create-case-form>div {
     margin-bottom: 24px;
 }
 
@@ -94,7 +94,7 @@
     accent-color: #007bff;
 }
 
-.create-case-form label > input[type="checkbox"] {
+.create-case-form label>input[type="checkbox"] {
     display: inline-block;
 }
 
@@ -146,7 +146,8 @@
     .create-case-form input,
     .create-case-form textarea {
         padding: 10px;
-        font-size: 16px; /* Prevents zoom on iOS */
+        font-size: 16px;
+        /* Prevents zoom on iOS */
     }
 
     .create-case-form button {
@@ -183,7 +184,7 @@
         font-size: 1.05rem;
     }
 
-    .create-case-form > div {
+    .create-case-form>div {
         margin-bottom: 28px;
     }
 
@@ -196,4 +197,100 @@
         transform: translateY(-3px);
         box-shadow: 0 8px 16px rgba(0, 123, 255, 0.3);
     }
+}
+
+/* --- Auth gate card (shown when no token) --- */
+.auth-gate-card {
+    margin: 1.5rem auto 0;
+    max-width: 560px;
+    background: #fff;
+    border: 1px solid rgba(26, 44, 61, 0.12);
+    border-radius: 16px;
+    padding: 1.25rem;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+.auth-gate-actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 0.25rem;
+}
+
+.auth-gate-btn {
+    text-decoration: none;
+    font-weight: 800;
+    border-radius: 999px;
+    padding: 0.8rem 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 150px;
+    transition: filter 0.15s ease, transform 0.06s ease;
+}
+
+.auth-gate-btn:active {
+    transform: translateY(1px);
+}
+
+.auth-gate-btn-primary {
+    background: #C6A664;
+    color: #1A2C3D;
+}
+
+.auth-gate-btn-secondary {
+    background: rgba(26, 44, 61, 0.06);
+    color: #1A2C3D;
+    border: 1px solid rgba(26, 44, 61, 0.18);
+}
+
+.auth-gate-btn:hover {
+    filter: brightness(1.05);
+}
+
+.auth-gate-note {
+    margin: 0.9rem 0 0;
+    text-align: center;
+    color: rgba(26, 44, 61, 0.75);
+    font-size: 0.95rem;
+}
+
+.auth-gate-links {
+    margin-top: 0.85rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.auth-gate-link {
+    color: #1A2C3D;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.auth-gate-link:hover {
+    color: #C6A664;
+}
+
+.auth-gate-dot {
+    opacity: 0.45;
+}
+
+/* --- Field layout helpers (optional) --- */
+.field {
+    margin-bottom: 1rem;
+}
+
+.field-error input,
+.field-error textarea {
+    border-color: rgba(180, 50, 50, 0.45);
+}
+
+.checkbox {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
 }

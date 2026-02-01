@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import postSignup from "../api/post-signup.js";
 import postLogin from "../api/post-login.js";
 import { useAuth } from "../hooks/use-auth.js";
@@ -7,6 +7,7 @@ import "./SignupForm.css";
 
 function SignupForm() {
     const navigate = useNavigate();
+    const location = useLocation();
     const { setAuthUser } = useAuth();
     const [error, setError] = useState("");
 
@@ -67,7 +68,8 @@ function SignupForm() {
                     userId: response.user_id,
                     username: response.username,
                 });
-                navigate("/");
+                const from = location.state?.from || "/";
+                navigate(from);
             })
             .catch((err) => {
                 setError(err.message);

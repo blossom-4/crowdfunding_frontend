@@ -10,7 +10,7 @@ import SignupPage from "./pages/SignupPage.jsx";
 import CreateCasePage from "./pages/CreateCasePage.jsx";
 import EditCaseForm from "./pages/EditCasePage.jsx";
 import { AuthProvider } from "./components/AuthProvider.jsx";
-import'../main.css'
+import '../main.css'
 
 
 const router = createBrowserRouter([
@@ -21,7 +21,6 @@ const router = createBrowserRouter([
           { path: "/", element: <HomePage /> },
           { path: "/login", element: <LoginPage />},
           { path: "/signup", element: <SignupPage />},
-          { path: "/case", element: <CasePage /> },
           { path: "/about", element: <AboutPage/>},
           { path: "/create-a-case", element: <CreateCasePage/>},
           { path: "/case/:id", element: <CasePage />},

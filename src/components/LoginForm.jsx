@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import postLogin from "../api/post-login.js";
 import { useAuth } from "../hooks/use-auth.js";
 
 function LoginForm() {
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
+    const location = useLocation();
     const {auth, setAuth} = useAuth();
 
     const [credentials, setCredentials] = useState({
@@ -31,7 +32,8 @@ function LoginForm() {
                 setAuth({
                     token: response.token,
                 });
-                navigate("/");
+                const from = location.state?.from || "/";
+                navigate(from);
             });
         }
     };

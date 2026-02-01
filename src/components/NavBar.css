@@ -7,7 +7,7 @@
     background-color: #1A2C3D;
     padding: 0.8rem 1.5rem;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     position: sticky;
@@ -22,7 +22,7 @@
 
 .navbar {
     width: 100%;
-    max-width: 1200px;
+    max-width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -38,15 +38,36 @@
 .logo-container {
     display: flex;
     align-items: center;
+    gap: 0.8rem;
     flex-shrink: 0;
 }
 
+.logo-container a {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.logo-container a:hover {
+    opacity: 0.8;
+}
+
 .navbar-logo {
-    height: 78px;
+    height: 50px;
     width: auto;
     object-fit: contain;
 }
 
+.logo-text {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: 0.5px;
+    color: var(--verdict-gold);
+    white-space: nowrap;
+}
 
 /* =========================
    NAV LINKS
