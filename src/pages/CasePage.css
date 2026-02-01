@@ -11,7 +11,6 @@
     margin-bottom: 20px;
 }
 
-/* Container for case content + judgement form */
 .case-judgment-container {
     display: flex;
     flex-direction: row; /* two columns */
