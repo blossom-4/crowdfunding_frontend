@@ -70,6 +70,17 @@
     margin: 10px 0;
 }
 
+.case-description {
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--text);
+    margin: 16px 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
 .case-page-img {
     width: 100%;
     max-width: 520px;

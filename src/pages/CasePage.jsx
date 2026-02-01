@@ -32,7 +32,7 @@ function CasePage() {
                 <div className="case-content">
                     <h2>{item.title}</h2>
                     {item.image && <img className="case-page-img" src={item.image} alt={item.title} />}
-                    <p>{item.description}</p>
+                    <div className="case-description">{item.description}</div>
                     <p>Created at: {new Date(item.date_created).toLocaleString()}</p>
                     <p>Status: {item.is_open ? "Open" : "Closed"}</p>
 
