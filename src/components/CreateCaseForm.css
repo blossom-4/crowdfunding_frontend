@@ -1,84 +1,145 @@
+/* CreateCaseForm.css */
+/* Matches Login/Signup + Auth Gate styling */
+
+:root {
+    --navy: #1A2C3D;
+    --cream: #FDFBF7;
+    --gold: #C6A664;
+
+    --text: #243242;
+    --muted: rgba(26, 44, 61, 0.75);
+
+    --card: #ffffff;
+    --border: rgba(26, 44, 61, 0.12);
+    --shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+
+    --radius: 16px;
+}
+
+/* ===== Page wrapper ===== */
 .create-case-container {
-    max-width: 800px;
+    min-height: calc(100vh - 120px);
+    max-width: 980px;
     margin: 0 auto;
+    padding: 2.25rem 1.25rem 4rem;
     text-align: center;
-    padding: 40px 20px;
+    background: var(--cream);
 }
 
 .create-case-title {
-    font-size: 2rem;
-    margin-bottom: 10px;
-    color: #222;
+    margin: 0 0 0.75rem;
+    font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+    font-weight: 900;
+    color: var(--navy);
+    letter-spacing: 0.2px;
 }
 
 .create-case-blurb {
-    font-size: 1rem;
-    color: #555;
-    max-width: 600px;
-    margin: 0 auto 40px;
-    line-height: 1.6;
+    margin: 0 auto 1.75rem;
+    max-width: 720px;
+    font-size: 1.02rem;
+    line-height: 1.65;
+    color: var(--muted);
 }
 
+/* ===== Form card ===== */
 .create-case-form {
-    background: #fff;
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    max-width: 720px;
+    margin: 0 auto;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    box-shadow: var(--shadow);
     text-align: left;
 }
 
-.create-case-form>div {
-    margin-bottom: 24px;
+/* Field blocks */
+.field {
+    margin-bottom: 1.1rem;
 }
 
 .create-case-form label {
     display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: #222;
+    margin-bottom: 0.45rem;
+    font-weight: 800;
+    color: var(--navy);
+    font-size: 0.95rem;
 }
 
+/* Inputs */
 .create-case-form input,
 .create-case-form textarea {
     width: 100%;
-    padding: 12px;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
+    padding: 0.9rem 1rem;
+    border: 1px solid rgba(26, 44, 61, 0.18);
+    border-radius: 12px;
     font-size: 1rem;
     font-family: inherit;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    color: var(--text);
+    background: #fff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
     box-sizing: border-box;
 }
 
 .create-case-form input:focus,
 .create-case-form textarea:focus {
     outline: none;
-    border-color: var(--balanced-blue);
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+    border-color: rgba(198, 166, 100, 0.95);
+    box-shadow: 0 0 0 4px rgba(198, 166, 100, 0.18);
 }
 
 .create-case-form textarea {
-    min-height: 150px;
+    min-height: 160px;
     resize: vertical;
     line-height: 1.5;
 }
 
-.create-case-form button {
-    background-color: var(--balanced-blue);
-    color: var(--ivory-);
-    border: none;
-    padding: 12px 24px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 1rem;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    width: 100%;
+.create-case-form small {
+    display: block;
+    margin-top: 0.45rem;
+    font-size: 0.9rem;
+    color: rgba(26, 44, 61, 0.7);
 }
 
-.create-case-form button:hover:not(:disabled) {
-    background-color: var(--midnight-justice);
-    transform: translateY(-2px);
+/* Checkbox */
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--navy);
+    font-weight: 700;
+}
+
+.create-case-form input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--gold);
+    cursor: pointer;
+}
+
+/* Submit button */
+.create-case-form button[type="submit"] {
+    margin-top: 0.25rem;
+    width: 100%;
+    padding: 0.95rem 1rem;
+    border: none;
+    border-radius: 999px;
+    background: var(--gold);
+    color: var(--navy);
+    font-weight: 900;
+    cursor: pointer;
+    font-size: 1rem;
+    letter-spacing: 0.2px;
+    transition: filter 0.15s ease, transform 0.06s ease;
+}
+
+.create-case-form button[type="submit"]:hover:not(:disabled) {
+    filter: brightness(1.05);
+}
+
+.create-case-form button[type="submit"]:active:not(:disabled) {
+    transform: translateY(1px);
 }
 
 .create-case-form button:disabled {
@@ -86,120 +147,36 @@
     cursor: not-allowed;
 }
 
-.create-case-form input[type="checkbox"] {
-    width: auto;
-    margin-right: 8px;
-    margin-bottom: 0;
-    cursor: pointer;
-    accent-color: #007bff;
-}
-
-.create-case-form label>input[type="checkbox"] {
-    display: inline-block;
-}
-
-.create-case-form small {
-    display: block;
-    font-size: 0.85rem;
-    color: #888;
-    margin-top: 4px;
+/* Validation / status */
+.field-error input,
+.field-error textarea {
+    border-color: rgba(180, 50, 50, 0.55);
+    box-shadow: none;
 }
 
 .create-case-form .error {
-    color: #c53030;
-    background-color: #fed7d7;
-    padding: 12px;
-    border-radius: 6px;
-    margin-top: 10px;
-    border-left: 4px solid #c53030;
+    margin-top: 0.75rem;
+    padding: 0.85rem 1rem;
+    border-radius: 12px;
+    background: #F8E5E8;
+    border: 1px solid #E5C5CB;
+    color: #9d1c2f;
+    font-size: 0.95rem;
+    font-weight: 700;
 }
 
 .create-case-form .success {
-    color: #22543d;
-    background-color: #c6f6d5;
-    padding: 12px;
-    border-radius: 6px;
-    margin-top: 10px;
-    border-left: 4px solid #38a169;
+    margin-top: 0.75rem;
+    padding: 0.85rem 1rem;
+    border-radius: 12px;
+    background: rgba(46, 125, 50, 0.12);
+    border: 1px solid rgba(46, 125, 50, 0.25);
+    color: #2e7d32;
+    font-size: 0.95rem;
+    font-weight: 800;
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-    .create-case-container {
-        padding: 20px 15px;
-    }
-
-    .create-case-title {
-        font-size: 1.5rem;
-        margin-bottom: 8px;
-    }
-
-    .create-case-blurb {
-        font-size: 0.95rem;
-        margin-bottom: 30px;
-    }
-
-    .create-case-form {
-        padding: 20px;
-    }
-
-    .create-case-form input,
-    .create-case-form textarea {
-        padding: 10px;
-        font-size: 16px;
-        /* Prevents zoom on iOS */
-    }
-
-    .create-case-form button {
-        padding: 10px 16px;
-        font-size: 0.95rem;
-    }
-}
-
-/* Larger Screens */
-@media (min-width: 1024px) {
-    .create-case-container {
-        max-width: 900px;
-        padding: 60px 40px;
-    }
-
-    .create-case-title {
-        font-size: 2.5rem;
-        margin-bottom: 15px;
-    }
-
-    .create-case-blurb {
-        font-size: 1.1rem;
-        margin-bottom: 50px;
-    }
-
-    .create-case-form {
-        padding: 40px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    }
-
-    .create-case-form input,
-    .create-case-form textarea {
-        padding: 14px;
-        font-size: 1.05rem;
-    }
-
-    .create-case-form>div {
-        margin-bottom: 28px;
-    }
-
-    .create-case-form button {
-        padding: 14px 32px;
-        font-size: 1.05rem;
-    }
-
-    .create-case-form button:hover:not(:disabled) {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 16px rgba(0, 123, 255, 0.3);
-    }
-}
-
-/* --- Auth gate card (shown when no token) --- */
+/* ===== Auth gate (no token) — keep your current look ===== */
 .auth-gate-card {
     margin: 1.5rem auto 0;
     max-width: 560px;
@@ -220,7 +197,7 @@
 
 .auth-gate-btn {
     text-decoration: none;
-    font-weight: 800;
+    font-weight: 900;
     border-radius: 999px;
     padding: 0.8rem 1.2rem;
     display: inline-flex;
@@ -235,13 +212,13 @@
 }
 
 .auth-gate-btn-primary {
-    background: #C6A664;
-    color: #1A2C3D;
+    background: var(--gold);
+    color: var(--navy);
 }
 
 .auth-gate-btn-secondary {
     background: rgba(26, 44, 61, 0.06);
-    color: #1A2C3D;
+    color: var(--navy);
     border: 1px solid rgba(26, 44, 61, 0.18);
 }
 
@@ -266,31 +243,32 @@
 }
 
 .auth-gate-link {
-    color: #1A2C3D;
-    font-weight: 800;
+    color: var(--navy);
+    font-weight: 900;
     text-decoration: none;
 }
 
 .auth-gate-link:hover {
-    color: #C6A664;
+    color: var(--gold);
 }
 
 .auth-gate-dot {
     opacity: 0.45;
 }
 
-/* --- Field layout helpers (optional) --- */
-.field {
-    margin-bottom: 1rem;
-}
+/* ===== Responsive tweaks ===== */
+@media (max-width: 480px) {
+    .create-case-container {
+        padding: 1.75rem 1rem 3rem;
+    }
 
-.field-error input,
-.field-error textarea {
-    border-color: rgba(180, 50, 50, 0.45);
-}
+    .create-case-form {
+        padding: 1.1rem;
+    }
 
-.checkbox {
-    display: flex;
-    gap: 0.6rem;
-    align-items: center;
+    /* prevent iOS zoom */
+    .create-case-form input,
+    .create-case-form textarea {
+        font-size: 16px;
+    }
 }
