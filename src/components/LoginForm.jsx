@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import postLogin from "../api/post-login.js";
 import { useAuth } from "../hooks/use-auth.js";
 
@@ -59,6 +59,7 @@ function LoginForm() {
         <button type="submit" onClick={handleSubmit}>
             Login
         </button>
+        <p>Don't have an account? <Link to="/signup">Sign up here</Link></p>
         </form>
     );
 }
