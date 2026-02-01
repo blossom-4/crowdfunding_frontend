@@ -20,15 +20,8 @@ function CasePage() {
     return (
         <div className="container">
 
-            {/* Judgement summary at top */}
-            <div className="judgment-summary">
-                <JudgementCount judgements={judgements} />
-            </div>
-
-            {/* Case content + judgement form */}
             <div className="case-judgment-container">
 
-                {/* Left column: Case content */}
                 <div className="case-content">
                     <h2>{item.title}</h2>
                     {item.image && <img className="case-page-img" src={item.image} alt={item.title} />}
@@ -38,12 +31,10 @@ function CasePage() {
 
                     {errorJ && <p style={{ color: "red" }}>{errorJ.message}</p>}
 
-                    {/* Only show Edit Case button for owner */}
                     <Link to={`/case/${id}/edit`}>
                         <button>Edit Case</button>
                     </Link>
 
-                    {/* Historical Judgements */}
                     <ul className="historical-judgements">
                         {loadingJ ? (
                             <li>Loading judgements...</li>
@@ -62,8 +53,10 @@ function CasePage() {
                     </ul>
                 </div>
 
-                {/* Right column: Judgement form */}
                 <div className="judgment-form">
+                    <div className="judgment-summary">
+                        <JudgementCount judgements={judgements} />
+                    </div>
                     <JudgementForm
                         caseId={item.id}
                         onVoteSubmitted={() => {
