@@ -22,7 +22,7 @@
     --ivory-court: #FDFBF7;
     --verdict-gold: #C1A15E;
     --balanced-blue: #3E6D8E;
-    --neutral-gray: #4F4F4F;   
+    --neutral-gray: #4F4F4F;
     --muted-gray: #8A8A8A;
     --error-red: #B23A48;
 }
@@ -156,6 +156,15 @@ button.secondary {
     background-color: transparent;
     color: var(--balanced-blue);
     border: 1px solid var(--balanced-blue);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+    outline: 3px solid rgba(198, 166, 100, 0.8);
+    /* your gold */
+    outline-offset: 3px;
+    border-radius: 12px;
 }
 
 /* -------- LOGO -------- */

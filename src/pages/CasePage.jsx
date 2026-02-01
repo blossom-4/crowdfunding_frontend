@@ -3,6 +3,7 @@ import useCase from "../hooks/use-case.js";
 import useJudgements from "../hooks/use-judgements.js";
 import JudgementForm from "../components/JudgementForm.jsx";
 import JudgementCount from "../components/JudgementCount.jsx";
+import ShareButtons from "../components/ShareButtons.jsx";
 import "./CasePage.css";
 
 function CasePage() {
@@ -31,9 +32,12 @@ function CasePage() {
 
                     {errorJ && <p style={{ color: "red" }}>{errorJ.message}</p>}
 
-                    <Link to={`/case/${id}/edit`}>
-                        <button>Edit Case</button>
-                    </Link>
+                    <div className="case-actions">
+                        <Link to={`/case/${id}/edit`}>
+                            <button>Edit Case</button>
+                        </Link>
+                        <ShareButtons caseTitle={item.title} caseId={item.id} />
+                    </div>
 
                     <ul className="historical-judgements">
                         {loadingJ ? (

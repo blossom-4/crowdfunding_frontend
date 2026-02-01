@@ -10,7 +10,7 @@ function LoginPage() {
                     <p>
                         Please log in or create a user{" "}
                         <span className="glowing-text">
-                            to start pleading your case or using your human right to judge in the public court of opinion!
+                            to start pleading your case or using your human right to judge in the court of public opinion!
                         </span>
                     </p>
                 </div>

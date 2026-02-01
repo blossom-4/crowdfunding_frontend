@@ -7,7 +7,7 @@
     background: #FDFBF7;
     padding: 1rem 1rem;
     text-align: center;
-    margin-bottom: 0;
+    margin-bottom: 1rem;
 }
 
 .home-quote {
@@ -26,7 +26,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    padding: 2rem 2rem 3rem;
+    padding: 0.75rem 2rem 3rem;
     max-width: 1400px;
     margin: 0 auto;
 }
@@ -35,7 +35,7 @@
 @media (max-width: 768px) {
     .home-header {
         padding: 1.5rem 1rem;
-        margin-bottom: 1.5rem;
+        margin-bottom: 0.75rem;
     }
 
     .home-quote {
@@ -45,7 +45,7 @@
     #case-list {
         grid-template-columns: 1fr;
         gap: 1.5rem;
-        padding: 1.5rem 1rem 2rem;
+        padding: 0.5rem 1rem 2rem;
     }
 }
 
@@ -53,7 +53,7 @@
 @media (min-width: 769px) and (max-width: 1024px) {
     .home-header {
         padding: 2rem 2rem;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
     }
 
     .home-quote {
@@ -63,7 +63,7 @@
     #case-list {
         grid-template-columns: repeat(2, 1fr);
         gap: 1.75rem;
-        padding: 1.75rem 1.5rem 2.5rem;
+        padding: 0.75rem 1.5rem 2.5rem;
     }
 }
 
@@ -71,7 +71,7 @@
 @media (min-width: 1025px) {
     .home-header {
         padding: 2.5rem 2rem;
-        margin-bottom: 2.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .home-quote {
@@ -81,6 +81,6 @@
     #case-list {
         grid-template-columns: repeat(3, 1fr);
         gap: 2.5rem;
-        padding: 2.5rem 2rem 3rem;
+        padding: 1rem 2rem 3rem;
     }
 }

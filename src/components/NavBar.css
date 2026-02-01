@@ -86,51 +86,10 @@
     gap: 0.75rem;
 }
 
-/* Links base */
-.nav-link {
-    text-decoration: none;
-    color: var(--cream);
-    font-weight: 700;
-    font-size: 1rem;
-    padding: 0.75rem 0;
-    border: none;
-    background: none;
-    cursor: pointer;
-    position: relative;
-    opacity: 0.92;
-    transition: color 0.2s ease, opacity 0.2s ease, background 0.2s ease;
-}
-
-.nav-link:hover {
-    color: var(--gold);
-    opacity: 1;
-}
-
-/* Active underline */
-.nav-link.active {
-    color: var(--gold);
-    opacity: 1;
-}
-
-.nav-link.active::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0.3rem;
-    height: 2px;
-    background: var(--gold);
-    border-radius: 2px;
-}
-
-/* Auth link spacing */
+/* Desktop auth button - hide on mobile */
 .nav-auth {
     padding: 0.6rem 0.85rem;
     border-radius: 12px;
-}
-
-.nav-auth:hover {
-    background: rgba(253, 251, 247, 0.08);
 }
 
 /* ===== Hamburger ===== */
@@ -185,6 +144,11 @@
 
     /* Hide desktop center links on mobile */
     .nav-center {
+        display: none;
+    }
+
+    /* Hide desktop auth button on mobile - shown in dropdown instead */
+    .nav-auth {
         display: none;
     }
 

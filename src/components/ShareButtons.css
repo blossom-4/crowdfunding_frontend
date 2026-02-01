@@ -1,0 +1,130 @@
+.share-buttons-container {
+    position: relative;
+    display: inline-block;
+}
+
+.share-toggle {
+    padding: 14px 18px;
+    border-radius: 999px;
+    border: none;
+    background: #3E6D8E;
+    color: #FDFBF7;
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 900;
+    cursor: pointer;
+    transition: filter 0.15s ease, transform 0.08s ease;
+}
+
+.share-toggle:hover {
+    filter: brightness(1.1);
+}
+
+.share-toggle:active {
+    transform: translateY(1px);
+}
+
+.share-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 8px;
+    background: white;
+    border: 1px solid rgba(26, 44, 61, 0.12);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    z-index: 10;
+    min-width: 120px;
+    animation: slideDown 0.2s ease;
+    overflow: hidden;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.share-option {
+    display: block;
+    width: 100%;
+    padding: 10px 14px;
+    border: none;
+    border-bottom: 1px solid rgba(26, 44, 61, 0.08);
+    background: transparent !important;
+    color: #1A2C3D !important;
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.15s ease;
+}
+
+.share-option:last-child {
+    border-bottom: none;
+}
+
+.share-option:hover {
+    background-color: #fafafa !important;
+    color: #1A2C3D !important;
+}
+
+.share-option:active {
+    background-color: #f5f5f5 !important;
+}
+
+/* Platform-specific styling - just logos, no backgrounds */
+.share-option.facebook::before {
+    content: "f ";
+    font-weight: bold;
+    color: #1877F2;
+    margin-right: 8px;
+}
+
+.share-option.twitter::before {
+    content: "𝕏 ";
+    font-weight: bold;
+    color: #000000;
+    margin-right: 8px;
+}
+
+.share-option.linkedin::before {
+    content: "in ";
+    font-weight: bold;
+    color: #0A66C2;
+    margin-right: 8px;
+}
+
+.share-option.email::before {
+    content: "✉ ";
+    color: #555;
+    margin-right: 8px;
+}
+
+.share-option.copy::before {
+    content: "⧉ ";
+    color: #555;
+    margin-right: 8px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .share-menu {
+        position: fixed;
+        top: auto;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        min-width: auto;
+    }
+
+    .share-option {
+        padding: 16px;
+        font-size: 1rem;
+    }
+}
