@@ -1,0 +1,86 @@
+.home-page {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.home-header {
+    background: #FDFBF7;
+    padding: 1rem 1rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.home-quote {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #555;
+    margin: 0;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#case-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 0.75rem 2rem 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .home-header {
+        padding: 1.5rem 1rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .home-quote {
+        font-size: 0.95rem;
+    }
+
+    #case-list {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0.5rem 1rem 2rem;
+    }
+}
+
+/* Tablet Responsiveness */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .home-header {
+        padding: 2rem 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .home-quote {
+        font-size: 1.05rem;
+    }
+
+    #case-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.75rem;
+        padding: 0.75rem 1.5rem 2.5rem;
+    }
+}
+
+/* Large Screens */
+@media (min-width: 1025px) {
+    .home-header {
+        padding: 2.5rem 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .home-quote {
+        font-size: 1.15rem;
+    }
+
+    #case-list {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.5rem;
+        padding: 1rem 2rem 3rem;
+    }
+}

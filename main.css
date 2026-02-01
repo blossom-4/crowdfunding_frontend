@@ -18,11 +18,11 @@
 
 /* -------- COLOR VARIABLES -------- */
 :root {
-    --midnight-justice: #1A2C3D; /* Authority, trust */
-    --ivory-court: #FDFBF7;      /* Human warmth */
-    --verdict-gold: #C1A15E;     /* Soft civic gold (less luxury) */
-    --balanced-blue: #3E6D8E;    /* Calm, thoughtful */
-    --neutral-gray: #4F4F4F;     /* Softer text gray */
+    --midnight-justice: #1A2C3D;
+    --ivory-court: #FDFBF7;
+    --verdict-gold: #C1A15E;
+    --balanced-blue: #3E6D8E;
+    --neutral-gray: #4F4F4F;
     --muted-gray: #8A8A8A;
     --error-red: #B23A48;
 }
@@ -158,6 +158,15 @@ button.secondary {
     border: 1px solid var(--balanced-blue);
 }
 
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+    outline: 3px solid rgba(198, 166, 100, 0.8);
+    /* your gold */
+    outline-offset: 3px;
+    border-radius: 12px;
+}
+
 /* -------- LOGO -------- */
 .logo {
     height: 60px;
@@ -165,13 +174,7 @@ button.secondary {
     margin-right: 20px;
 }
 
-/* -------- CASE GRID -------- */
-#case-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.75rem;
-    padding: 2rem;
-}
+/* Case grid styling moved to HomePage.css for better control */
 
 /* -------- CASE CARD -------- */
 .case-card {

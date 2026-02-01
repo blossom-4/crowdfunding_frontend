@@ -1,0 +1,200 @@
+/* EditCasePage.css - Matches CasePage and Form styling */
+
+:root {
+    --navy: #1A2C3D;
+    --cream: #FDFBF7;
+    --gold: #C6A664;
+    --text: rgba(26, 44, 61, 0.82);
+    --muted: rgba(26, 44, 61, 0.65);
+    --card: #ffffff;
+    --border: rgba(26, 44, 61, 0.12);
+    --shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+    --radius: 14px;
+}
+
+/* Page container */
+.edit-case-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 48px 20px 70px;
+    background: var(--cream);
+    color: var(--navy);
+    min-height: calc(100vh - 120px);
+}
+
+.edit-case-title {
+    font-family: "Libre Baskerville", serif;
+    font-size: 2.1rem;
+    font-weight: 700;
+    margin: 0 0 12px;
+    color: var(--navy);
+    text-align: center;
+}
+
+.edit-case-blurb {
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--muted);
+    text-align: center;
+    margin: 0 0 28px;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Form card */
+.edit-case-form {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 26px;
+    text-align: left;
+}
+
+/* Form fields */
+.edit-case-form .field {
+    margin-bottom: 18px;
+}
+
+.edit-case-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: var(--navy);
+}
+
+.edit-case-form input,
+.edit-case-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid rgba(26, 44, 61, 0.18);
+    border-radius: 12px;
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 1rem;
+    color: var(--text);
+    background: #fff;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.edit-case-form input:focus,
+.edit-case-form textarea:focus {
+    outline: none;
+    border-color: rgba(198, 166, 100, 0.95);
+    box-shadow: 0 0 0 4px rgba(198, 166, 100, 0.18);
+}
+
+.edit-case-form textarea {
+    min-height: 160px;
+    resize: vertical;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.edit-case-form small {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-family: "Source Sans 3", sans-serif;
+}
+
+/* Checkbox field */
+.checkbox-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.checkbox-field input[type="checkbox"] {
+    width: auto;
+    cursor: pointer;
+    accent-color: var(--gold);
+}
+
+.checkbox-field label {
+    margin: 0;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/* Buttons */
+.edit-case-form button {
+    margin-top: 18px;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 999px;
+    background: var(--gold);
+    color: var(--navy);
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 900;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: filter 0.15s ease, transform 0.08s ease;
+}
+
+.edit-case-form button:hover {
+    filter: brightness(1.05);
+}
+
+.edit-case-form button:active {
+    transform: translateY(1px);
+}
+
+.edit-case-form button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Status messages */
+.error {
+    margin-top: 10px;
+    padding: 12px;
+    background: #F8E5E8;
+    border: 1px solid #E5C5CB;
+    border-radius: 8px;
+    color: #9d1c2f;
+    font-size: 0.95rem;
+    font-family: "Source Sans 3", sans-serif;
+    text-align: center;
+}
+
+.success {
+    margin-top: 10px;
+    padding: 12px;
+    background: #E8F5E9;
+    border: 1px solid #C8E6C9;
+    border-radius: 8px;
+    color: #2e7d32;
+    font-size: 0.95rem;
+    font-family: "Source Sans 3", sans-serif;
+    text-align: center;
+    font-weight: 600;
+}
+
+.field-error input,
+.field-error textarea {
+    border-color: #9d1c2f;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .edit-case-container {
+        padding: 24px 16px 48px;
+    }
+
+    .edit-case-form {
+        padding: 18px;
+    }
+
+    .edit-case-title {
+        font-size: 1.6rem;
+    }
+}

@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import postLogin from "../api/post-login.js";
 import { useAuth } from "../hooks/use-auth.js";
 
 function LoginForm() {
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
+    const location = useLocation();
     const {auth, setAuth} = useAuth();
 
     const [credentials, setCredentials] = useState({
@@ -31,13 +32,14 @@ function LoginForm() {
                 setAuth({
                     token: response.token,
                 });
-                navigate("/");
+                const from = location.state?.from || "/";
+                navigate(from);
             });
         }
     };
 
     return (
-        <form>
+        <form className="login-form">
             <div>
                 <label htmlFor="username">Username:</label>
             <input
@@ -59,6 +61,7 @@ function LoginForm() {
         <button type="submit" onClick={handleSubmit}>
             Login
         </button>
+        <p>Don't have an account? <Link to="/signup">Sign up here</Link></p>
         </form>
     );
 }

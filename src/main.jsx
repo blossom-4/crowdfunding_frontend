@@ -6,10 +6,11 @@ import CasePage from "./pages/CasePage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
 import NavBar from "./components/NavBar.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
+import SignupPage from "./pages/SignupPage.jsx";
 import CreateCasePage from "./pages/CreateCasePage.jsx";
 import EditCaseForm from "./pages/EditCasePage.jsx";
 import { AuthProvider } from "./components/AuthProvider.jsx";
-import'../main.css'
+import '../main.css'
 
 
 const router = createBrowserRouter([
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
       children: [
           { path: "/", element: <HomePage /> },
           { path: "/login", element: <LoginPage />},
-          { path: "/case", element: <CasePage /> },
+          { path: "/signup", element: <SignupPage />},
           { path: "/about", element: <AboutPage/>},
           { path: "/create-a-case", element: <CreateCasePage/>},
           { path: "/case/:id", element: <CasePage />},

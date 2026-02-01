@@ -3,6 +3,7 @@ import useCase from "../hooks/use-case.js";
 import useJudgements from "../hooks/use-judgements.js";
 import JudgementForm from "../components/JudgementForm.jsx";
 import JudgementCount from "../components/JudgementCount.jsx";
+import ShareButtons from "../components/ShareButtons.jsx";
 import "./CasePage.css";
 
 function CasePage() {
@@ -20,30 +21,24 @@ function CasePage() {
     return (
         <div className="container">
 
-            {/* Judgement summary at top */}
-            <div className="judgment-summary">
-                <JudgementCount judgements={judgements} />
-            </div>
-
-            {/* Case content + judgement form */}
             <div className="case-judgment-container">
 
-                {/* Left column: Case content */}
                 <div className="case-content">
                     <h2>{item.title}</h2>
                     {item.image && <img className="case-page-img" src={item.image} alt={item.title} />}
-                    <p>{item.description}</p>
+                    <div className="case-description">{item.description}</div>
                     <p>Created at: {new Date(item.date_created).toLocaleString()}</p>
                     <p>Status: {item.is_open ? "Open" : "Closed"}</p>
 
                     {errorJ && <p style={{ color: "red" }}>{errorJ.message}</p>}
 
-                    {/* Only show Edit Case button for owner (optional logic) */}
-                    <Link to={`/case/${id}/edit`}>
-                        <button>Edit Case</button>
-                    </Link>
+                    <div className="case-actions">
+                        <Link to={`/case/${id}/edit`}>
+                            <button>Edit Case</button>
+                        </Link>
+                        <ShareButtons caseTitle={item.title} caseId={item.id} />
+                    </div>
 
-                    {/* Historical Judgements */}
                     <ul className="historical-judgements">
                         {loadingJ ? (
                             <li>Loading judgements...</li>
@@ -62,8 +57,10 @@ function CasePage() {
                     </ul>
                 </div>
 
-                {/* Right column: Judgement form */}
                 <div className="judgment-form">
+                    <div className="judgment-summary">
+                        <JudgementCount judgements={judgements} />
+                    </div>
                     <JudgementForm
                         caseId={item.id}
                         onVoteSubmitted={() => {

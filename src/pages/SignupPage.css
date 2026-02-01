@@ -1,0 +1,58 @@
+/* SignupPage.css */
+
+.signup-page {
+    min-height: calc(100vh - 120px);
+    background: var(--cream, #FDFBF7);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 3rem 1.25rem 4rem;
+}
+
+.signup-card {
+    width: 100%;
+    max-width: 560px;
+    background: #ffffff;
+    border: 1px solid rgba(26, 44, 61, 0.12);
+    border-radius: 16px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+}
+
+.signup-header {
+    padding: 1.4rem 1.5rem 1rem;
+    border-bottom: 1px solid rgba(26, 44, 61, 0.08);
+    background: linear-gradient(180deg,
+            rgba(26, 44, 61, 0.06),
+            rgba(26, 44, 61, 0));
+    text-align: center;
+}
+
+.signup-header h1 {
+    margin: 0 0 0.4rem;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #1A2C3D;
+}
+
+.signup-header p {
+    margin: 0;
+    color: rgba(26, 44, 61, 0.75);
+    line-height: 1.45;
+    font-size: 0.98rem;
+}
+
+.signup-form-wrap {
+    padding: 1.25rem 1.5rem 1.5rem;
+}
+
+/* Mobile tweaks */
+@media (max-width: 480px) {
+    .signup-header {
+        padding: 1.2rem;
+    }
+
+    .signup-form-wrap {
+        padding: 1.1rem 1.2rem;
+    }
+}

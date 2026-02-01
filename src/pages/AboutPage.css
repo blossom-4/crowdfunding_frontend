@@ -1,18 +1,101 @@
-.footer {
+.about-page {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 60px 20px;
     text-align: center;
-    padding: 2rem;
-    font-size: 0.9rem;
+    color: #1A2C3D;
+}
+
+.about-page header {
+    margin-bottom: 28px;
+}
+
+.about-page h1 {
+    font-family: "Libre Baskerville", serif;
+    font-size: 3rem;
+    margin: 0 0 14px;
+    color: #1A2C3D;
+    line-height: 1.15;
+}
+
+.about-page .lead {
+    max-width: 620px;
+    margin: 0 auto;
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: rgba(26, 44, 61, 0.8);
+    font-weight: 500;
+}
+
+.about-page section {
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 14px;
+    border: 1px solid rgba(26, 44, 61, 0.12);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+    padding: 32px 28px;
+    text-align: left;
+}
+
+.about-page h2 {
+    font-family: "Libre Baskerville", serif;
+    font-size: 2rem;
+    margin: 0 0 12px;
+    color: #1A2C3D;
+    text-align: left;
+}
+
+.about-page p {
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: rgba(26, 44, 61, 0.78);
+    margin: 0 0 14px;
+}
+
+.about-page section p:last-child {
+    margin-bottom: 0;
+}
+
+.footer {
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(26, 44, 61, 0.12);
+    text-align: center;
+}
+
+.footer p:first-child {
+    max-width: 720px;
+    margin: 0 auto 10px;
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 0.85rem;
+    line-height: 1.55;
+    color: rgba(26, 44, 61, 0.6);
+}
+
+.footer p:last-child {
+    margin: 0;
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 0.85rem;
+    color: rgba(26, 44, 61, 0.55);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .about-page {
+        padding: 40px 16px;
     }
 
-html {
-    box-sizing: border-box;
-    font-size: 16px;
-    font-family: "Bad Script", sans-serif;
-    color: var(--black);
-    scroll-behavior: smooth;}
+    .about-page h1 {
+        font-size: 2.2rem;
+    }
 
-.body {
-    margin: 0 auto;
-    text-align: center;
-    padding: 20px, 0, 0, 0;
+    .about-page h2 {
+        font-size: 1.6rem;
+    }
+
+    .about-page section {
+        padding: 22px 18px;
+    }
 }
