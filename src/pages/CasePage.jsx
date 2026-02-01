@@ -38,7 +38,7 @@ function CasePage() {
 
                     {errorJ && <p style={{ color: "red" }}>{errorJ.message}</p>}
 
-                    {/* Only show Edit Case button for owner (optional logic) */}
+                    {/* Only show Edit Case button for owner */}
                     <Link to={`/case/${id}/edit`}>
                         <button>Edit Case</button>
                     </Link>

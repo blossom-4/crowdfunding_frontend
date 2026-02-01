@@ -80,9 +80,7 @@
     display: block;
 }
 
-/* Edit button matches your gold-pill style */
 .case-content button {
-    margin-top: 14px;
     padding: 14px 18px;
     border-radius: 999px;
     border: none;
@@ -102,7 +100,40 @@
     transform: translateY(1px);
 }
 
-/* ===== Historical judgements as a clean list ===== */
+.case-content button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.case-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.case-actions a {
+    text-decoration: none;
+}
+
+.btn-edit {
+    background: var(--gold);
+    color: var(--navy);
+}
+
+.btn-delete {
+    background: #B23A48;
+    color: var(--cream);
+}
+
+.btn-delete:hover {
+    filter: brightness(0.95);
+}
+
+.case-content button:active {
+    transform: translateY(1px);
+}
+
 .historical-judgements {
     list-style: none;
     padding: 0;
@@ -121,7 +152,6 @@
     color: var(--text);
 }
 
-/* ===== Right column: verdict form card (sticky) ===== */
 .judgment-form {
     position: sticky;
     top: 16px;
@@ -136,7 +166,6 @@
     text-align: left;
 }
 
-/* Form title */
 .judgment-form h3 {
     margin: 0 0 14px;
     font-family: "Libre Baskerville", serif;
@@ -144,7 +173,6 @@
     color: var(--navy);
 }
 
-/* Fieldset */
 .judgment-form fieldset {
     border: 1px solid rgba(26, 44, 61, 0.14);
     border-radius: 12px;
@@ -159,7 +187,6 @@
     color: var(--navy);
 }
 
-/* Radio labels */
 .judgment-form label {
     display: flex;
     align-items: center;
@@ -170,13 +197,11 @@
     color: var(--text);
 }
 
-/* Inputs */
 .judgment-form input[type="radio"],
 .judgment-form input[type="checkbox"] {
     accent-color: var(--gold);
 }
 
-/* Comment input */
 .judgment-form input[type="text"] {
     width: 100%;
     box-sizing: border-box;
@@ -203,7 +228,6 @@
     color: var(--muted);
 }
 
-/* Submit button — gold pill */
 .judgment-form button[type="submit"] {
     width: 100%;
     margin-top: 12px;
@@ -232,7 +256,6 @@
     cursor: not-allowed;
 }
 
-/* Error message inside JudgementForm */
 .judgment-form p {
     margin: 10px 0 0;
     padding: 12px;
@@ -244,7 +267,6 @@
     font-weight: 700;
 }
 
-/* ===== Responsive ===== */
 @media (max-width: 900px) {
     .case-judgment-container {
         grid-template-columns: 1fr;
@@ -260,7 +282,6 @@
         padding: 34px 16px 60px;
     }
 
-    /* prevent iOS zoom */
     .judgment-form input[type="text"] {
         font-size: 16px;
     }
