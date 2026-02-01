@@ -1,47 +1,64 @@
+/* =========================
+   TOP RIBBON
+========================= */
+
 .ribbon {
     width: 100%;
     background-color: #1A2C3D;
-    padding: 0.75rem 1.5rem;
+    padding: 0.8rem 1.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
+
+
+/* =========================
+   NAVBAR CONTAINER
+========================= */
 
 .navbar {
     width: 100%;
     max-width: 1200px;
     display: flex;
-    justify-content: flex-start;
     align-items: center;
-    color: #FDFBF7;
+    justify-content: space-between;
     gap: 1.5rem;
-    position: relative;
+    color: #FDFBF7;
 }
 
+
+/* =========================
+   LOGO
+========================= */
+
 .logo-container {
-    flex: 1;
     display: flex;
     align-items: center;
-    gap: 0;
-    min-width: 0;
+    flex-shrink: 0;
 }
 
 .navbar-logo {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    display: block;
+    height: 78px;
+    width: auto;
+    object-fit: contain;
 }
+
+
+/* =========================
+   NAV LINKS
+========================= */
 
 .nav-list {
     list-style: none;
     display: flex;
-    gap: 1.5rem;
+    align-items: center;
+    gap: 1.75rem;
     margin: 0;
     padding: 0;
-    flex-shrink: 0;
 }
 
 .nav-list li {
@@ -51,49 +68,87 @@
 .nav-list a,
 .nav-list button {
     text-decoration: none;
-    color: #FDFBF7 !important;
-    font-weight: 500;
-    transition: color 0.3s ease;
-    padding: 0.5rem 0 !important;
-    border: none;
-    background: none !important;
-    cursor: pointer;
+    color: #FDFBF7;
+    font-weight: 600;
     font-size: 1rem;
-    font-family: inherit;
+    padding: 0.75rem 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.2s ease, opacity 0.2s ease;
+    opacity: 0.9;
 }
 
 .nav-list a:hover,
 .nav-list button:hover {
     color: #C6A664;
+    opacity: 1;
 }
+
+
+/* =========================
+   ACTIVE LINK UNDERLINE
+========================= */
 
 .nav-link.active {
     color: #C6A664;
-    border-bottom: 2px solid #C6A664;
 }
 
-/* Hamburger Menu Button */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
-    gap: 5px;
-    flex-shrink: 0;
-}
-
-.hamburger span {
-    width: 25px;
-    height: 3px;
-    background-color: #FDFBF7;
-    transition: all 0.3s ease;
+.nav-link.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0.3rem;
+    height: 2px;
+    background: #C6A664;
     border-radius: 2px;
 }
 
+
+/* =========================
+   CTA BUTTON (Raise a Case)
+========================= */
+
+.nav-cta {
+    padding: 0.55rem 1.1rem;
+    border-radius: 999px;
+    background: #C6A664;
+    color: #1A2C3D;
+    font-weight: 700;
+    opacity: 1;
+}
+
+.nav-cta:hover {
+    filter: brightness(1.08);
+}
+
+
+/* =========================
+   HAMBURGER
+========================= */
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.4rem;
+}
+
+.hamburger span {
+    width: 26px;
+    height: 3px;
+    background: #FDFBF7;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
 .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(10px, 10px);
+    transform: rotate(45deg) translate(6px, 6px);
 }
 
 .hamburger.active span:nth-child(2) {
@@ -101,58 +156,60 @@
 }
 
 .hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
+    transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* Mobile Responsiveness */
+
+/* =========================
+   MOBILE MENU
+========================= */
+
 @media (max-width: 768px) {
-    .ribbon {
-        padding: 0.5rem 1rem;
-    }
 
     .navbar {
-        flex-wrap: wrap;
-        gap: 1rem;
-    }
-
-    .logo-container {
-        flex: 0 1 auto;
-        width: auto;
-        margin-bottom: 0;
+        position: relative;
     }
 
     .navbar-logo {
-        max-width: 200px;
+        height: 64px;
     }
 
     .hamburger {
         display: flex;
+        margin-left: auto;
     }
 
     .nav-list {
         position: absolute;
-        top: 100%;
+        top: calc(100% + 0.5rem);
         left: 0;
         right: 0;
-        background-color: #1A2C3D;
+
+        background: #1A2C3D;
+        border-radius: 14px;
+
         flex-direction: column;
-        width: 100%;
         gap: 0;
-        max-height: 0;
+
         overflow: hidden;
-        transition: max-height 0.3s ease;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        z-index: 999;
+
+        transform: translateY(-10px);
+        opacity: 0;
+        pointer-events: none;
+
+        transition: transform 0.25s ease, opacity 0.25s ease;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
     }
 
     .nav-list.active {
-        max-height: 500px;
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
     }
 
     .nav-list li {
-        white-space: normal;
         width: 100%;
-        border-bottom: 1px solid rgba(253, 251, 247, 0.1);
+        border-bottom: 1px solid rgba(253, 251, 247, 0.12);
     }
 
     .nav-list li:last-child {
@@ -161,52 +218,34 @@
 
     .nav-list a,
     .nav-list button {
-        display: block;
         width: 100%;
+        padding: 1rem 1.4rem;
         text-align: left;
         font-size: 0.95rem;
-        padding: 1rem 1.5rem;
-        border: none;
+    }
+
+    .nav-link.active::after {
+        display: none;
     }
 
     .nav-link.active {
-        border-bottom: none;
-        background-color: rgba(198, 166, 100, 0.1);
+        background: rgba(198, 166, 100, 0.12);
     }
 }
 
-/* Tablet Responsiveness */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .navbar {
-        gap: 1.2rem;
-    }
 
-    .navbar-logo {
-        max-width: 350px;
-    }
+/* =========================
+   LARGE SCREENS
+========================= */
 
-    .nav-list {
-        gap: 1.2rem;
-    }
-
-    .nav-list a,
-    .nav-list button {
-        font-size: 0.95rem;
-    }
-}
-
-/* Large Screens */
 @media (min-width: 1025px) {
+
     .ribbon {
         padding: 1rem 2rem;
     }
 
-    .navbar {
-        gap: 2rem;
-    }
-
     .navbar-logo {
-        max-width: 450px;
+        height: 86px;
     }
 
     .nav-list {

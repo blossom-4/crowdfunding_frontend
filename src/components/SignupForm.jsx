@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import postSignup from "../api/post-signup.js";
 import postLogin from "../api/post-login.js";
 import { useAuth } from "../hooks/use-auth.js";
+import "./SignupForm.css";
 
 function SignupForm() {
     const navigate = useNavigate();
@@ -74,8 +75,9 @@ function SignupForm() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            {error && <div style={{ color: "red", marginBottom: "10px" }}>{error}</div>}
+        <div className="signup-container">
+            <form onSubmit={handleSubmit}>
+                {error && <div className="error-message">{error}</div>}
             <div>
                 <label htmlFor="username">Username:</label>
                 <input
@@ -137,7 +139,8 @@ function SignupForm() {
                 />
             </div>
             <button type="submit">Sign Up</button>
-        </form>
+            </form>
+        </div>
     );
 }
 
