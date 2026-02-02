@@ -118,6 +118,7 @@ function CasePage() {
                     </div>
                     <JudgementForm
                         caseId={item.id}
+                        caseOwnerId={item.owner}
                         onVoteSubmitted={() => {
                             window.location.reload();
                         }}

@@ -1,12 +1,27 @@
 import { useState } from "react";
+import { useAuth } from "../hooks/use-auth.js";
 import postJudgement from "../api/post-judgement";
 
 
-export default function JudgementForm({ caseId, onVoteSubmitted }) {
-    const token = window.localStorage.getItem("token")
+export default function JudgementForm({ caseId, caseOwnerId, onVoteSubmitted }) {
+    const { auth } = useAuth();
+    const token = window.localStorage.getItem("token");
+    
+    // Check if current user is the case owner
+    const isOwner = auth?.userId && caseOwnerId && parseInt(auth.userId) === parseInt(caseOwnerId);
     
     if (!token) {
         return <p>Please log in to submit a verdict.</p>;
+    }
+
+    if (isOwner) {
+        return (
+            <div style={{ padding: "1rem", backgroundColor: "#fff3cd", borderRadius: "8px", border: "1px solid #ffc107" }}>
+                <p style={{ color: "#856404", margin: 0 }}>
+                    You cannot submit a verdict on your own case. Only other users can vote on cases you've created.
+                </p>
+            </div>
+        );
     }
     
     const [verdict, setVerdict] = useState("");
