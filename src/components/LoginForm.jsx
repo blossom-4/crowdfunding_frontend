@@ -6,7 +6,7 @@ import { useAuth } from "../hooks/use-auth.js";
 function LoginForm() {
     const navigate = useNavigate();
     const location = useLocation();
-    const { setAuth } = useAuth();
+    const { setAuthUser } = useAuth();
 
     const [credentials, setCredentials] = useState({
         username: "",
@@ -28,9 +28,10 @@ function LoginForm() {
                 credentials.username,
                 credentials.password
             ).then((response) => {
-                window.localStorage.setItem("token", response.token);
-                setAuth({
+                setAuthUser({
                     token: response.token,
+                    userId: response.user_id,
+                    username: response.username,
                 });
                 const from = location.state?.from || "/";
                 navigate(from);

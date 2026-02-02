@@ -1,4 +1,4 @@
-import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
+import { Link, NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 import "./NavBar.css";
 import { useAuth } from "../hooks/use-auth.js";
@@ -7,6 +7,7 @@ import logo from "../assets/COURT_OF_PUBLIC_OPINION.png";
 function NavBar() {
     const { auth, clearAuth } = useAuth();
     const [menuOpen, setMenuOpen] = useState(false);
+    const navigate = useNavigate();
 
     const location = useLocation();
     const navId = useId();
@@ -81,7 +82,13 @@ function NavBar() {
                         {/* Desktop auth link */}
                         {auth?.token ? (
                             <div className="auth-section">
-                                <button className="person-icon-btn" aria-label="User profile">👤</button>
+                                <button 
+                                    className="person-icon-btn" 
+                                    aria-label="User profile"
+                                    onClick={() => navigate("/user")}
+                                >
+                                    👤
+                                </button>
                                 <button type="button" className="nav-link nav-auth" onClick={handleLogout}>
                                     Log Out
                                 </button>
@@ -118,7 +125,16 @@ function NavBar() {
                             <li>
                                 {auth?.token ? (
                                     <div className="mobile-auth-section">
-                                        <button className="person-icon-btn" aria-label="User profile">👤</button>
+                                        <button 
+                                            className="person-icon-btn" 
+                                            aria-label="User profile"
+                                            onClick={() => {
+                                                navigate("/user");
+                                                closeMenu();
+                                            }}
+                                        >
+                                            👤
+                                        </button>
                                         <button type="button" className="nav-link" onClick={handleLogout}>
                                             Log Out
                                         </button>
