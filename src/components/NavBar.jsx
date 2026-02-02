@@ -5,7 +5,7 @@ import { useAuth } from "../hooks/use-auth.js";
 import logo from "../assets/COURT_OF_PUBLIC_OPINION.png";
 
 function NavBar() {
-    const { auth, setAuth } = useAuth();
+    const { auth, clearAuth } = useAuth();
     const [menuOpen, setMenuOpen] = useState(false);
 
     const location = useLocation();
@@ -20,8 +20,7 @@ function NavBar() {
 
     const handleLogout = () => {
         try {
-            window.localStorage.removeItem("token");
-            setAuth({ token: null });
+            clearAuth();
             closeMenu();
         } catch (err) {
             console.error("Logout failed:", err);
@@ -81,9 +80,12 @@ function NavBar() {
                     <div className="nav-right">
                         {/* Desktop auth link */}
                         {auth?.token ? (
-                            <button type="button" className="nav-link nav-auth" onClick={handleLogout}>
-                                Log Out
-                            </button>
+                            <div className="auth-section">
+                                <button className="person-icon-btn" aria-label="User profile">👤</button>
+                                <button type="button" className="nav-link nav-auth" onClick={handleLogout}>
+                                    Log Out
+                                </button>
+                            </div>
                         ) : (
                             <NavLink to="/login" className={({ isActive }) =>
                                 isActive ? "nav-link nav-auth active" : "nav-link nav-auth"
@@ -115,9 +117,12 @@ function NavBar() {
 
                             <li>
                                 {auth?.token ? (
-                                    <button type="button" className="nav-link" onClick={handleLogout}>
-                                        Log Out
-                                    </button>
+                                    <div className="mobile-auth-section">
+                                        <button className="person-icon-btn" aria-label="User profile">👤</button>
+                                        <button type="button" className="nav-link" onClick={handleLogout}>
+                                            Log Out
+                                        </button>
+                                    </div>
                                 ) : (
                                     <NavLink to="/login" className={linkClass} onClick={closeMenu}>
                                         Login
