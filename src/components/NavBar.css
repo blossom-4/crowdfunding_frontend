@@ -143,25 +143,17 @@
 }
 
 .person-icon-btn {
-    background: transparent !important;
-    border: none !important;
-    color: var(--cream) !important;
-    font-size: 1.5rem !important;
+    background: none;
+    border: none;
+    color: #FDFBF7;
+    font-size: 1.5rem;
     cursor: pointer;
     padding: 0.4rem;
     border-radius: 8px;
-    transition: all 0.2s ease;
+    transition: background-color 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.person-icon-btn:hover {
-    background-color: rgba(253, 251, 247, 0.1);
-}
-
-.person-icon-btn i {
-    color: var(--cream) !important;
 }
 
 .person-icon-btn:hover {
