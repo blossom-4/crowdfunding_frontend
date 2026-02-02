@@ -87,7 +87,7 @@ function NavBar() {
                                     aria-label="User profile"
                                     onClick={() => navigate("/user")}
                                 >
-                                    <i className="fas fa-user"></i>
+                                    👤
                                 </button>
                                 <button type="button" className="nav-link nav-auth" onClick={handleLogout}>
                                     Log Out
@@ -133,7 +133,7 @@ function NavBar() {
                                                 closeMenu();
                                             }}
                                         >
-                                            <i className="fas fa-user"></i>
+                                            👤
                                         </button>
                                         <button type="button" className="nav-link" onClick={handleLogout}>
                                             Log Out
