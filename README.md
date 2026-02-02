@@ -11,12 +11,15 @@ Raise The Case bridges the gap between traditional justice systems and community
 ### Core Functionality
 - **User Accounts**: Create an account or log in to submit and judge cases
 - **Case Submission**: Submit detailed cases with titles, descriptions, and supporting images
-- **Case Management**: Edit your own cases or close them once verdicts are finalised
+- **Case Management**: Edit or delete your own cases, or close them once verdicts are finalised
 - **Public Verdict System**: The community votes "Guilty" or "Not Guilty" with optional commentary
 - **Verdict Breakdown**: See case verdicts visualised as an easy-to-read percentage bar showing guilty vs innocent votes
 - **Anonymous Judging**: Submit verdicts anonymously to encourage fair assessment
 - **Share on Social Media**: Share cases directly to Facebook, Twitter/X, LinkedIn, or email with a single click
 - **Case Discovery**: Browse all submitted cases with full details and history
+- **User Profile**: View your account statistics, update your username or password, and manage your account
+- **Case Ownership Protection**: Only case creators can edit or delete their cases; case owners cannot vote on their own cases
+- **Account Management**: View your submitted cases and verdicts count, update your profile information, or permanently delete your account
 
 ### Technical Highlights
 - **Custom React Hooks**: Dedicated hooks for managing cases, verdicts, and authentication
@@ -44,6 +47,7 @@ src/
 │   ├── CasePage.jsx         # View case details with verdicts
 │   ├── CreateCasePage.jsx   # Submit a new case
 │   ├── EditCasePage.jsx     # Edit your own cases
+│   ├── UserPage.jsx         # User profile and account management
 │   ├── LoginPage.jsx        # Sign in to your account
 │   ├── SignupPage.jsx       # Create a new account
 │   └── AboutPage.jsx        # Learn about the platform
@@ -55,6 +59,7 @@ src/
 │   ├── LoginForm.jsx        # Sign in form
 │   ├── SignupForm.jsx       # Account creation form
 │   ├── ShareButtons.jsx     # Social media sharing dropdown
+│   ├── ConfirmModal.jsx     # Reusable confirmation dialog
 │   ├── NavBar.jsx           # Navigation with responsive menu
 │   └── AuthProvider.jsx     # Authentication context
 ├── hooks/                   # Custom React hooks
@@ -68,11 +73,16 @@ src/
 │   ├── get-case.js          # Fetch individual case
 │   ├── get-cases.js         # Fetch all cases
 │   ├── get-judgements.js    # Fetch verdicts
+│   ├── get-user-cases.js    # Fetch user's submitted cases
+│   ├── get-user-judgments.js # Fetch user's verdicts
 │   ├── post-createcase.js   # Create a new case
 │   ├── post-judgement.js    # Submit a verdict
 │   ├── post-login.js        # Sign in
 │   ├── post-signup.js       # Create account
-│   └── put-update-case.js   # Edit case details
+│   ├── put-update-case.js   # Edit case details
+│   ├── put-update-user.js   # Update user profile
+│   ├── delete-case.js       # Delete a case
+│   └── delete-account.js    # Delete user account
 ├── main.jsx                 # App entry point with routing
 └── main.css                 # Global styles
 ```
@@ -104,10 +114,18 @@ Fill in the case details with a title, description, and optional image. Describe
 Browse any case to see the description, arguments, and current verdict breakdown. The verdict is shown as a visual percentage bar—guilty on the left, not guilty on the right.
 
 ### Submitting Your Verdict
-Head to a case and vote guilty or not guilty. You can add a comment explaining your reasoning if you'd like. Your verdict counts towards the overall case verdict.
+Head to a case and vote guilty or not guilty. You can add a comment explaining your reasoning if you'd like. Your verdict counts towards the overall case verdict. Note: You cannot vote on cases you've created.
 
-### Editing Your Cases
-After you've submitted a case, you can edit it anytime before closing it. Once a case is closed, no more verdicts can be added.
+### Editing and Deleting Your Cases
+After you've submitted a case, you can edit or delete it at any time. A confirmation dialog will appear before deletion to prevent accidental loss of data.
+
+### Managing Your Account
+Access your user profile by clicking the profile icon in the navigation bar. From there, you can:
+- View the number of cases you've submitted
+- View the number of verdicts you've made
+- Update your username
+- Update your password
+- Permanently delete your account (requires confirmation)
 
 ### Authentication & Sessions
 Your login token is saved locally so you stay signed in between visits. You can log out anytime, and your cases will remain on the platform.
@@ -142,15 +160,14 @@ The app adapts to every screen size:
 ## Next Steps
 
 Ideas for future versions:
-- Sorting and filtering cases by status or date or creating themes
-- User profiles showing your submitted cases
+- Sorting and filtering cases by status, date, or creating themes
 - Advanced search across case descriptions
 - Categories or tags for cases
 - Pagination for case listings
 - Real-time notifications for case updates
 - User reputation based on verdicts
-- Delete cases
-- Private cases that are sent to individuals to deal with matters as a specified group. 
+- Private cases that are sent to individuals to deal with matters as a specified group
+- Case appeal system for disputed verdicts 
 
 ## Browser Support
 
