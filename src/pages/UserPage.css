@@ -1,0 +1,258 @@
+.user-page {
+    min-height: 100vh;
+    background-color: #FDFBF7;
+    padding: 2rem 1rem;
+}
+
+.user-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-page h1 {
+    text-align: left;
+    margin-bottom: 0.5rem;
+    color: #1A2C3D;
+    font-size: 2rem;
+}
+
+.greeting-message {
+    color: #4F4F4F;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    margin-top: 0;
+}
+
+.user-page h2 {
+    color: #1A2C3D;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #C6A664;
+    padding-bottom: 0.5rem;
+}
+
+/* Stats Section */
+.stats-section {
+    margin-bottom: 2rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, #1A2C3D 0%, #3E6D8E 100%);
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #FDFBF7;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #C6A664;
+}
+
+/* Profile Section */
+.profile-section,
+.danger-section {
+    margin-bottom: 2rem;
+}
+
+.profile-info {
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.profile-info p {
+    margin: 0;
+    color: #4F4F4F;
+    font-size: 1rem;
+}
+
+/* Forms */
+.update-form,
+.delete-confirm-form {
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #1A2C3D;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: 'Source Sans 3', sans-serif;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    outline: 2px solid #C6A664;
+    outline-offset: 2px;
+    border-color: #C6A664;
+}
+
+.form-buttons,
+.delete-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.form-buttons button,
+.delete-buttons button {
+    flex: 1;
+}
+
+/* Buttons */
+.btn-primary,
+.btn-secondary,
+.btn-cancel,
+.btn-danger {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-family: 'Source Sans 3', sans-serif;
+}
+
+.btn-primary {
+    background-color: #C6A664;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #b0943d;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: #3E6D8E;
+    color: white;
+    width: 100%;
+}
+
+.btn-secondary:hover {
+    background-color: #2f5470;
+}
+
+.btn-cancel {
+    background-color: #8A8A8A;
+    color: white;
+}
+
+.btn-cancel:hover {
+    background-color: #6f6f6f;
+}
+
+.btn-danger {
+    background-color: #B23A48;
+    color: white;
+    width: 100%;
+}
+
+.btn-danger:hover {
+    background-color: #8d2d38;
+    transform: translateY(-2px);
+}
+
+/* Delete Confirmation */
+.warning-text {
+    color: #B23A48;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.delete-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #B23A48;
+    border-radius: 6px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-family: 'Source Sans 3', sans-serif;
+    box-sizing: border-box;
+}
+
+.delete-input:focus {
+    outline: 2px solid #B23A48;
+    outline-offset: 2px;
+}
+
+/* Messages */
+.error-message {
+    background-color: #ffe6e6;
+    color: #B23A48;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-top: 1.5rem;
+    border-left: 4px solid #B23A48;
+}
+
+.success-message {
+    background-color: #e6f3e6;
+    color: #2d6a2d;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-top: 1.5rem;
+    border-left: 4px solid #2d6a2d;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .user-container {
+        padding: 1.5rem;
+    }
+
+    .user-page h1 {
+        font-size: 1.5rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-buttons,
+    .delete-buttons {
+        flex-direction: column;
+    }
+
+    .form-buttons button,
+    .delete-buttons button {
+        width: 100%;
+    }
+}

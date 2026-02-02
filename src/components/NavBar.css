@@ -78,6 +78,25 @@
     padding: 0;
 }
 
+.nav-center .nav-link {
+    text-decoration: none;
+    color: var(--cream);
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.3px;
+    transition: color 0.25s ease;
+    position: relative;
+}
+
+.nav-center .nav-link:hover {
+    color: var(--gold);
+}
+
+.nav-center .nav-link.active {
+    color: var(--gold);
+    font-weight: 700;
+}
+
 /* Right (auth + hamburger) */
 .nav-right {
     display: flex;
@@ -90,6 +109,86 @@
 .nav-auth {
     padding: 0.6rem 0.85rem;
     border-radius: 12px;
+    text-decoration: none;
+    color: var(--cream) !important;
+    background-color: transparent;
+    border: 1px solid var(--cream);
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.3px;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-auth:hover {
+    background-color: var(--gold);
+    color: var(--navy) !important;
+    border-color: var(--gold);
+}
+
+.nav-auth.active {
+    background-color: var(--gold);
+    color: var(--navy) !important;
+    border-color: var(--gold);
+}
+
+/* Auth section styling */
+.auth-section {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.person-icon-btn {
+    background: transparent !important;
+    border: none !important;
+    color: var(--cream) !important;
+    font-size: 1.5rem !important;
+    cursor: pointer;
+    padding: 0.4rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.person-icon-btn:hover {
+    background-color: rgba(253, 251, 247, 0.1);
+}
+
+.person-icon-btn i {
+    color: var(--cream) !important;
+}
+
+.person-icon-btn:hover {
+    background-color: rgba(253, 251, 247, 0.1);
+}
+
+.greeting {
+    color: var(--cream);
+    font-size: 0.95rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.mobile-auth-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.mobile-auth-section .greeting {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+.mobile-auth-section .nav-link {
+    width: 100%;
 }
 
 /* ===== Hamburger ===== */
@@ -144,6 +243,11 @@
 
     /* Hide desktop center links on mobile */
     .nav-center {
+        display: none;
+    }
+
+    /* Hide desktop auth section on mobile - shown in dropdown instead */
+    .auth-section {
         display: none;
     }
 

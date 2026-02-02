@@ -9,6 +9,7 @@ import LoginPage from "./pages/LoginPage.jsx";
 import SignupPage from "./pages/SignupPage.jsx";
 import CreateCasePage from "./pages/CreateCasePage.jsx";
 import EditCaseForm from "./pages/EditCasePage.jsx";
+import UserPage from "./pages/UserPage.jsx";
 import { AuthProvider } from "./components/AuthProvider.jsx";
 import '../main.css'
 
@@ -24,7 +25,8 @@ const router = createBrowserRouter([
           { path: "/about", element: <AboutPage/>},
           { path: "/create-a-case", element: <CreateCasePage/>},
           { path: "/case/:id", element: <CasePage />},
-          { path: "/case/:id/edit", element: <EditCaseForm/>}
+          { path: "/case/:id/edit", element: <EditCaseForm/>},
+          { path: "/user", element: <UserPage/>}
       ],
   },
 ]);
