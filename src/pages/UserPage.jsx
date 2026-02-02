@@ -151,8 +151,7 @@ function UserPage() {
                     <div className="error-message">
                         <p><strong>Error:</strong> {error}</p>
                         <p style={{ fontSize: "0.9rem", marginTop: "0.5rem" }}>
-                            If you see a 404 error, the backend endpoint may not be deployed yet. 
-                            Make sure your backend changes are pushed to Heroku.
+                            Sorry there has been an issue with retireving your portfolio information, please log out and try again. Thank you for undertanding Raise the Case Team.
                         </p>
                     </div>
                 </div>
